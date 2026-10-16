@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+.pytest_cache/
+*.pyc
+.env
+.kaggle/
+data/raw/
+artifacts/
+*.duckdb.wal
+.DS_Store
