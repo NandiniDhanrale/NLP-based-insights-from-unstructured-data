@@ -1,0 +1,8 @@
+streamlit==1.45.1
+pandas==2.2.3
+numpy==2.2.5
+scikit-learn==1.6.1
+duckdb==1.2.2
+plotly==6.0.1
+joblib==1.4.2
+pytest==8.3.5
