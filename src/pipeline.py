@@ -34,7 +34,7 @@ def clean_text(value: object) -> str:
     if not isinstance(value, str):
         return ""
     value = re.sub(r"<[^>]+>", " ", value)
-    return re.sub(r"\\s+", " ", value).strip()
+    return re.sub(r"\s+", " ", value).strip()
 
 def label_rating(rating: int) -> str:
     return LABELS[int(rating)]
@@ -52,7 +52,7 @@ def prepare(frame: pd.DataFrame) -> pd.DataFrame:
     df["review_id"] = df["Id"].astype(str)
     df["label"] = df["rating"].astype(int).map(LABELS)
     # Repeated text must not appear on both sides of the time split.
-    df["normalized"] = df["review"].str.lower().str.replace(r"\\s+", " ", regex=True)
+    df["normalized"] = df["review"].str.lower().str.replace(r"\s+", " ", regex=True)
     df = df.sort_values(["date", "review_id"]).drop_duplicates(subset=["normalized"]).drop_duplicates(subset=["review_id"])
     return df[["review_id", "product_id", "date", "review", "rating", "label"]].reset_index(drop=True)
 
